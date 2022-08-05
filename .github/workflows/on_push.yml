@@ -12,7 +12,8 @@ jobs:
             echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
             echo "History"
             git log --pretty=oneline
+            echo "-----------------"
             echo "rev-list -n 1 HEAD"
             git rev-list -n 1 "HEAD"
-            echo "git rev-parse "@~""
+            echo "rev-parse @~"
             git rev-parse "@~"
