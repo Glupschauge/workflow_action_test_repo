@@ -1,11 +1,13 @@
-name: 'On push & pull_request'
-on: [push, pull_request]
+name: 'On push'
+on: [push]
 jobs:
   bash-example:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Group of log lines
         run: |
             echo "GITHUB_BASE_REF: $GITHUB_BASE_REF" || true

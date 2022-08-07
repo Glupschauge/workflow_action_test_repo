@@ -1,0 +1,21 @@
+name: 'On pull_request'
+on: [pull_request]
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Group of log lines
+        run: |
+            echo "GITHUB_BASE_REF: $GITHUB_BASE_REF" || true
+            echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF" || true
+            echo "History" || true
+            git log --pretty=oneline || true
+            echo "-----------------" || true
+            echo "rev-list -n 1 HEAD" || true
+            git rev-list -n 1 "HEAD" || true
+            echo "rev-parse @~" || true
+            git rev-parse "@~" || true
