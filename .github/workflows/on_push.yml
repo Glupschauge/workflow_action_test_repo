@@ -8,12 +8,12 @@ jobs:
         uses: actions/checkout@v3
       - name: Group of log lines
         run: |
-            echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
-            echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
-            echo "History"
-            git log --pretty=oneline
-            echo "-----------------"
-            echo "rev-list -n 1 HEAD"
-            git rev-list -n 1 "HEAD"
-            echo "rev-parse @~"
-            git rev-parse "@~"
+            echo "GITHUB_BASE_REF: $GITHUB_BASE_REF" || true
+            echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF" || true
+            echo "History" || true
+            git log --pretty=oneline || true
+            echo "-----------------" || true
+            echo "rev-list -n 1 HEAD" || true
+            git rev-list -n 1 "HEAD" || true
+            echo "rev-parse @~" || true
+            git rev-parse "@~" || true
